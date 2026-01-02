@@ -174,8 +174,8 @@ const App: React.FC = () => {
             <style>{`
                 :root {
                     --color-primary: #1a1a1a;
-                    --color-pink-light: #fdf2f8; /* Rosa fucsia ultra suave solicitado */
-                    --color-pink-accent: #fbcfe8; /* Fucsia clarito empolvado */
+                    --color-pink-light: #fce7f3; /* Rosa ligeramente más oscuro y cálido */
+                    --color-pink-accent: #f9a8d4; /* Rosa fucsia empolvado más profundo */
                     --color-accent: #00a45d;
                 }
                 .bg-brand-pink { background-color: var(--color-pink-accent); }

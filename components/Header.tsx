@@ -16,7 +16,7 @@ const ChevronDownIcon = () => (
 );
 
 const MenuLink: React.FC<{ onClick?: () => void, children: React.ReactNode, className?: string }> = ({ onClick, children, className = "" }) => (
-    <button onClick={onClick} className={`text-[10px] font-bold text-white hover:text-[#fbcfe8] transition-colors duration-200 uppercase tracking-widest whitespace-nowrap px-4 ${className}`}>
+    <button onClick={onClick} className={`text-[10px] font-bold text-white hover:text-[#f9a8d4] transition-colors duration-200 uppercase tracking-widest whitespace-nowrap px-4 ${className}`}>
         {children}
     </button>
 );
@@ -36,8 +36,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, onCartClick }) =
 
     return (
         <header className="sticky top-0 z-40 flex flex-col w-full shadow-sm bg-white">
-            {/* Promo Bar - Rosa fucsia ultra clarito */}
-            <div className="bg-[#fdf2f8] py-2.5 text-black text-[9px] font-bold text-center uppercase tracking-[0.25em] border-b border-pink-100 w-full">
+            {/* Promo Bar - Rosa un poco más profundo */}
+            <div className="bg-[#fce7f3] py-2.5 text-black text-[9px] font-bold text-center uppercase tracking-[0.25em] border-b border-pink-200 w-full">
                 Catálogo 1 - 2026 | Envío GRATIS a partir de 35€
             </div>
 
@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, onCartClick }) =
                     </div>
 
                     <div className="flex-1 flex justify-end items-center gap-4">
-                        <button onClick={onCartClick} className="relative p-2 text-black hover:text-[#fbcfe8] transition-colors">
+                        <button onClick={onCartClick} className="relative p-2 text-black hover:text-[#f9a8d4] transition-colors">
                             <CartIcon />
                             {cartCount > 0 && (
                                 <span className="absolute top-1 right-1 bg-black text-white text-[8px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-white">
@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, onCartClick }) =
                             {/* Mega Menu Dropdown */}
                             <div className="absolute top-full left-0 md:left-1/2 md:-translate-x-1/2 w-[95vw] md:w-[900px] bg-black text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-10 grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-gray-800 z-50">
                                 <div className="space-y-5 text-left">
-                                    <h4 className="font-bold text-[11px] uppercase tracking-[0.2em] text-[#fbcfe8] border-b border-gray-800 pb-3">Maquillaje</h4>
+                                    <h4 className="font-bold text-[11px] uppercase tracking-[0.2em] text-[#f9a8d4] border-b border-gray-800 pb-3">Maquillaje</h4>
                                     <ul className="text-[10px] space-y-3 text-gray-400">
                                         <li><button onClick={() => onNavigate('products', 'makeup')} className="hover:text-white transition-colors">Rostro: Bases e Iluminadores</button></li>
                                         <li><button onClick={() => onNavigate('products', 'makeup')} className="hover:text-white transition-colors">Ojos: Sombras y Máscaras</button></li>
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, onCartClick }) =
                                     </ul>
                                 </div>
                                 <div className="space-y-5 text-left">
-                                    <h4 className="font-bold text-[11px] uppercase tracking-[0.2em] text-[#fbcfe8] border-b border-gray-800 pb-3">Cuidado Facial</h4>
+                                    <h4 className="font-bold text-[11px] uppercase tracking-[0.2em] text-[#f9a8d4] border-b border-gray-800 pb-3">Cuidado Facial</h4>
                                     <ul className="text-[10px] space-y-3 text-gray-400">
                                         <li><button onClick={() => onNavigate('products', 'skincare')} className="hover:text-white transition-colors">Ritual Novage+ Pro</button></li>
                                         <li><button onClick={() => onNavigate('products', 'skincare')} className="hover:text-white transition-colors">Limpieza Profunda</button></li>
@@ -103,9 +103,9 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, onCartClick }) =
                                         </div>
                                     </div>
                                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-800 flex flex-col justify-center text-left">
-                                        <h5 className="font-bold text-[10px] uppercase text-[#fbcfe8] mb-2 tracking-widest">Novedad IA</h5>
+                                        <h5 className="font-bold text-[10px] uppercase text-[#f9a8d4] mb-2 tracking-widest">Novedad IA</h5>
                                         <p className="text-[9px] text-gray-500 leading-relaxed mb-4">Pruébate el maquillaje del Catálogo 1 con nuestro espejo virtual.</p>
-                                        <button onClick={() => onNavigate('ia')} className="text-[10px] font-black underline text-white hover:text-[#fbcfe8]">PROBAR VIRTUALMENTE</button>
+                                        <button onClick={() => onNavigate('ia')} className="text-[10px] font-black underline text-white hover:text-[#f9a8d4]">PROBAR VIRTUALMENTE</button>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, onCartClick }) =
                         {/* Botón IA Vella IA transparente con contorno rosa claro */}
                         <button 
                             onClick={() => onNavigate('ia')} 
-                            className="text-[9px] font-bold uppercase tracking-widest text-white border border-[#fbcfe8] px-6 py-2.5 rounded-full hover:bg-[#fbcfe8] hover:text-black transition-all duration-300 ml-4 whitespace-nowrap"
+                            className="text-[9px] font-bold uppercase tracking-widest text-white border border-[#f9a8d4] px-6 py-2.5 rounded-full hover:bg-[#f9a8d4] hover:text-black transition-all duration-300 ml-4 whitespace-nowrap"
                         >
                             Vella IA
                         </button>

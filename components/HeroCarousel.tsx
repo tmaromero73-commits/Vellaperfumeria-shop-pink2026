@@ -9,16 +9,16 @@ interface HeroCarouselProps {
 const slides = [
     {
         imageUrl: 'https://images.unsplash.com/photo-1619014161955-46f890666014?q=80&w=2000&auto=format&fit=crop', 
-        title: 'Colección Platinum 2026',
-        subtitle: 'Luz y pureza para tu rutina de belleza. Descubre el nuevo Catálogo 1.',
-        buttonText: 'DESCUBRE EL LOOK',
+        title: 'Luz y Pureza: Catálogo 1',
+        subtitle: 'Descubre la Colección Platinum 2026. Cosmética de lujo inspirada en tu esencia.',
+        buttonText: 'EXPLORAR NOVEDADES',
         view: 'products' as View,
     },
     {
-        imageUrl: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2000&q=80',
-        title: 'Maquillaje Profesional',
-        subtitle: 'Tendencias de pasarela adaptadas a tu estilo diario.',
-        buttonText: 'VER MAQUILLAJE',
+        imageUrl: 'https://media-cdn.oriflame.com/digitalPromotionsMedia/images/banner-media/ES/20899847/20866148.jpg',
+        title: 'Divine Dark Velvet',
+        subtitle: 'Una fragancia misteriosa y elegante para noches inolvidables.',
+        buttonText: 'VER FRAGANCIA',
         view: 'products' as View,
     },
 ];
@@ -62,12 +62,12 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent flex items-center justify-start p-10 md:p-16">
                             <div className="max-w-2xl text-left text-white">
-                                <span className="bg-[#fbcfe8] text-black text-[10px] font-black px-4 py-1.5 rounded-full mb-6 inline-block tracking-[0.2em] uppercase">Exclusivo 2026</span>
+                                <span className="bg-[#f9a8d4] text-black text-[10px] font-black px-4 py-1.5 rounded-full mb-6 inline-block tracking-[0.2em] uppercase">Exclusivo Campaña 1</span>
                                 <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-6">{slide.title}</h2>
                                 <p className="text-lg md:text-xl opacity-90 mb-10 font-light leading-relaxed">{slide.subtitle}</p>
                                 <button
                                     onClick={() => onNavigate(slide.view)}
-                                    className="bg-white text-black font-black py-4 px-12 rounded-full shadow-2xl hover:bg-[#fbcfe8] transition-all duration-300 transform hover:scale-105 uppercase tracking-widest text-[11px]"
+                                    className="bg-white text-black font-black py-4 px-12 rounded-full shadow-2xl hover:bg-[#f9a8d4] transition-all duration-300 transform hover:scale-105 uppercase tracking-widest text-[11px]"
                                 >
                                     {slide.buttonText}
                                 </button>
@@ -88,7 +88,7 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                         <button
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-[#fbcfe8] w-8' : 'bg-white/40'}`}
+                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-[#f9a8d4] w-8' : 'bg-white/40'}`}
                         />
                     ))}
                 </div>
