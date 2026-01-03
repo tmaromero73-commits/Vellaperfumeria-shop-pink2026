@@ -51,10 +51,10 @@ const OfertasPage: React.FC<{
     );
 
     return (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-8">
             <div className="text-center mb-12">
-                <span className="inline-block py-1.5 px-4 rounded-full bg-[#fdf7fd] text-[#f78fb3] text-[10px] font-bold tracking-[0.2em] mb-4 border border-[#f78fb3]/20 uppercase">
-                    Catálogo 1 - 2026
+                <span className="inline-block py-1.5 px-4 rounded-full bg-[#FDF2F8] text-[#e91e63] text-[10px] font-bold tracking-[0.2em] mb-4 border border-[#FBCFE8] uppercase">
+                    Catálogo Hazlo 2026
                 </span>
                 <h1 className="text-4xl font-extrabold text-black tracking-tight font-serif">Ofertas Exclusivas</h1>
                 <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ const OfertasPage: React.FC<{
                         <div className="absolute bottom-0 left-0 p-8 z-20 w-full text-white">
                             <h3 className="text-2xl font-bold mb-1 leading-tight">{banner.title}</h3>
                             <p className="text-gray-200 text-sm mb-4 opacity-90">{banner.subtitle}</p>
-                            <button className="bg-white text-black text-[10px] font-bold py-2 px-6 rounded-full uppercase tracking-widest hover:bg-[#f78fb3] transition-colors">
+                            <button className="bg-black text-white text-[10px] font-bold py-2 px-6 rounded-full uppercase tracking-widest hover:bg-[#FBCFE8] hover:text-black transition-colors">
                                 {banner.actionText}
                             </button>
                         </div>
@@ -90,7 +90,7 @@ const OfertasPage: React.FC<{
             {/* Product List */}
             <div id="promo-products" className="scroll-mt-24">
                 <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
-                    <h2 className="text-2xl font-bold text-black">Destacados Campaña 1</h2>
+                    <h2 className="text-2xl font-bold text-black">Destacados Hazlo 2026</h2>
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">{promoProducts.length} productos</span>
                 </div>
                 
