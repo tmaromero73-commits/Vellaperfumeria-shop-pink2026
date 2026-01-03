@@ -1,9 +1,7 @@
-
 import React from 'react';
 import type { View, Product } from './types';
 import { allProducts } from './products';
 import { ProductCard } from './ProductCard';
-import HeroBanner from './HeroCarousel';
 import type { Currency } from './currency';
 
 const ProductList: React.FC<{
@@ -15,77 +13,44 @@ const ProductList: React.FC<{
     onQuickView: (product: Product) => void;
 }> = ({ onNavigate, onProductSelect, onAddToCart, onQuickAddToCart, currency, onQuickView }) => {
     
-    const catalogNovedades = allProducts.filter(p => p.tag === 'NOVEDAD').slice(0, 4);
-    const hairCareProducts = allProducts.filter(p => p.category === 'hair').slice(0, 4);
+    const novedades = allProducts.filter(p => p.tag === 'NOVEDAD' || p.tag === 'SET').slice(0, 5);
+    const ofertas = allProducts.filter(p => p.tag === 'OFERTA').slice(0, 5);
 
     return (
-        <div className="space-y-20 pb-20 bg-white">
+        <div className="space-y-16 pb-20 bg-white">
             
-            {/* HERO PRINCIPAL CON LOOK PLATINUM */}
-            <HeroBanner onNavigate={onNavigate} />
-
-            {/* SECCIÓN: RITUAL DE ESTILISMO FACIAL (BEAUTY TIMELINE) */}
-            <div className="w-full bg-white py-10">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className="text-[#f9a8d4] text-[13px] font-black uppercase tracking-[0.6em] mb-4 block">Timeline de Estilismo</span>
-                        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-black">Tu Ritual Platinum Paso a Paso</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-                        {/* Line connector for desktop */}
-                        <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -z-10"></div>
-                        
-                        {[
-                            { step: "01", name: "Limpiar", icon: "✨" },
-                            { step: "02", name: "Tratar", icon: "👁️" },
-                            { step: "03", name: "Potenciar", icon: "💧" },
-                            { step: "04", name: "Hidratar", icon: "🧴" }
-                        ].map((item, idx) => (
-                            <div key={idx} className="flex flex-col items-center bg-white p-6 rounded-2xl border border-gray-50 shadow-sm hover:shadow-md transition-shadow">
-                                <span className="text-4xl mb-4">{item.icon}</span>
-                                <span className="bg-[#f9a8d4] text-black text-[10px] font-black px-3 py-1 rounded-full mb-2">{item.step}</span>
-                                <h4 className="font-bold text-lg uppercase tracking-tight">{item.name}</h4>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Banner Look Final - FOTO SOLICITADA CON FONDO ROSA AJUSTADO */}
-                    <div className="mt-16 flex flex-col md:flex-row items-center gap-12 bg-[#fce7f3]/60 p-8 md:p-12 rounded-[50px] border border-pink-100">
-                        <div className="w-full md:w-1/2">
-                            <img 
-                                src="https://images.unsplash.com/photo-1619014161955-46f890666014?q=80&w=2000&auto=format&fit=crop" 
-                                className="w-full h-auto rounded-[40px] shadow-2xl" 
-                                alt="El Look Platinum 2026" 
-                            />
-                        </div>
-                        <div className="w-full md:w-1/2 space-y-6">
-                            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none text-black">El Resultado:<br/>Luz Pura</h3>
-                            <p className="text-gray-600 text-lg font-light leading-relaxed italic">
-                                "La belleza no es solo lo que aplicas, es cómo haces brillar tu propia esencia bajo la luz adecuada."
-                            </p>
+            {/* HERO - IMAGEN ARTÍSTICA "LUZ Y PUREZA" */}
+            <div className="relative w-full h-[70vh] bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1619014161955-46f890666014?q=80&w=2000&auto=format&fit=crop)' }}>
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-4">
+                    <div className="max-w-4xl">
+                        <span className="text-[#f472b6] font-black uppercase tracking-[0.5em] text-[10px] md:text-xs mb-4 block">Catálogo 1 - 2026 | Estilismo Platinum</span>
+                        <h1 className="text-white text-5xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-8">Luz y Pureza</h1>
+                        <div className="flex flex-col md:flex-row justify-center gap-4">
                             <button 
-                                onClick={() => onNavigate('products', 'skincare')}
-                                className="bg-black text-white font-black py-5 px-14 rounded-full shadow-xl transition-all transform hover:scale-105 uppercase tracking-widest text-[11px] hover:bg-[#f9a8d4] hover:text-black"
+                                onClick={() => onNavigate('products', 'all')}
+                                className="bg-[#f472b6] text-black font-black py-5 px-14 rounded-full uppercase tracking-widest text-[11px] hover:bg-white transition-all shadow-2xl"
                             >
-                                COMPRAR RITUAL COMPLETO
+                                Descubrir Colección
+                            </button>
+                            <button 
+                                onClick={() => onNavigate('catalog')}
+                                className="bg-transparent border-2 border-white text-white font-black py-5 px-14 rounded-full uppercase tracking-widest text-[11px] hover:bg-white hover:text-black transition-all"
+                            >
+                                Ver Catálogo Digital
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* SECCIÓN CABELLO (DUOLOGI) */}
+            {/* SECCIÓN NOVEDADES / GALERÍA */}
             <div className="container mx-auto px-4">
-                <div className="flex items-center justify-between mb-10 border-b border-gray-100 pb-5">
-                    <div className="flex flex-col">
-                        <span className="text-[#f9a8d4] text-[11px] font-black uppercase tracking-[0.3em] mb-1">Cuidado Capilar de Vanguardia</span>
-                        <h3 className="text-3xl font-black text-black uppercase tracking-tighter">Estilismo Duologi</h3>
-                    </div>
-                    <button onClick={() => onNavigate('products', 'hair')} className="text-black font-bold uppercase text-[10px] tracking-widest hover:text-[#f9a8d4] transition-colors border-b-2 border-black pb-1">Ver Todo</button>
+                <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
+                    <h2 className="text-2xl font-black uppercase tracking-tight">Favoritos de Campaña</h2>
+                    <button onClick={() => onNavigate('products', 'all')} className="text-[#f472b6] font-bold text-[10px] uppercase tracking-widest hover:underline">Explorar todo</button>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {hairCareProducts.map(product => (
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    {novedades.map(product => (
                         <ProductCard
                             key={product.id}
                             product={product}
@@ -99,14 +64,49 @@ const ProductList: React.FC<{
                 </div>
             </div>
 
-            {/* SECCIÓN NOVEDADES CATÁLOGO 1 */}
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h3 className="text-2xl font-black uppercase tracking-tight text-black mb-2">Favoritos de Campaña</h3>
-                    <div className="w-20 h-1 bg-[#f9a8d4] mx-auto"></div>
+            {/* TIMELINE DE BELLEZA - ESTILO PLATINUM */}
+            <div className="w-full bg-[#fdf2f8] py-24 border-y border-pink-100">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16 max-w-2xl mx-auto">
+                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Tu Ritual Platinum</h2>
+                        <p className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-500 font-bold">Consigue una piel radiante con nuestro paso a paso guiado por expertos</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        {[
+                            { step: "01", name: "Limpiar", icon: "✨", desc: "Elimina impurezas suavemente" },
+                            { step: "02", name: "Tratar", icon: "👁️", desc: "Contorno de ojos específico" },
+                            { step: "03", name: "Potenciar", icon: "💧", desc: "Serum activo concentrado" },
+                            { step: "04", name: "Hidratar", icon: "🧴", desc: "Sellado y protección total" }
+                        ].map((item, idx) => (
+                            <div key={idx} className="bg-white p-10 rounded-[40px] shadow-sm border border-transparent hover:border-[#f472b6] transition-all duration-500 flex flex-col items-center text-center group">
+                                <span className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
+                                <span className="bg-black text-[#f472b6] text-[10px] font-black px-4 py-1 rounded-full mb-3">{item.step}</span>
+                                <h4 className="font-black uppercase tracking-tight text-lg mb-2">{item.name}</h4>
+                                <p className="text-[10px] text-gray-400 uppercase tracking-widest leading-relaxed">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <div className="mt-16 text-center">
+                         <button 
+                            onClick={() => onNavigate('products', 'skincare')}
+                            className="text-black font-black text-[11px] uppercase tracking-widest border-b-2 border-black pb-2 hover:text-[#f472b6] hover:border-[#f472b6] transition-colors"
+                        >
+                            Ver productos de Skincare
+                        </button>
+                    </div>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {catalogNovedades.map(product => (
+            </div>
+
+            {/* SECCIÓN OFERTAS IMPERDIBLES */}
+            <div className="container mx-auto px-4">
+                <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
+                    <h2 className="text-2xl font-black uppercase tracking-tight">Ofertas Imperdibles</h2>
+                    <button onClick={() => onNavigate('ofertas')} className="text-[#f472b6] font-bold text-[10px] uppercase tracking-widest hover:underline">Ver todas</button>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    {ofertas.map(product => (
                         <ProductCard
                             key={product.id}
                             product={product}
@@ -120,24 +120,21 @@ const ProductList: React.FC<{
                 </div>
             </div>
 
-            {/* DOBLE BANNER INFERIOR - FOCO EN HOMBRE Y HIGIENE */}
+            {/* CTA SECCIÓN IA */}
             <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-10">
-                    <div className="relative h-96 rounded-[40px] overflow-hidden group cursor-pointer shadow-lg" onClick={() => onNavigate('products', 'men')}>
-                        <img src="https://media-cdn.oriflame.com/digitalPromotionsMedia/images/banner-media/ES/20899847/20866155.jpg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Fragancias Hombre" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end p-10 text-white">
-                            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#f9a8d4] mb-3">Esencia Masculina</span>
-                            <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">Eclat Homme 2026</h3>
-                            <button className="bg-white text-black font-black py-3 px-8 rounded-full text-[10px] uppercase tracking-widest w-fit hover:bg-[#f9a8d4] transition-all">Ver Colección</button>
+                <div className="bg-black rounded-[50px] p-12 md:p-24 overflow-hidden relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#f472b6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                        <div className="max-w-xl text-center md:text-left">
+                            <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-none">Vella IA: Tu experto personal</h2>
+                            <p className="text-gray-400 uppercase tracking-[0.2em] text-[10px] md:text-xs leading-relaxed">¿No sabes qué tono elegir? ¿Necesitas una rutina para tu tipo de piel? Nuestra Inteligencia Artificial te recomienda lo mejor.</p>
                         </div>
-                    </div>
-                    <div className="relative h-96 rounded-[40px] overflow-hidden group cursor-pointer shadow-lg" onClick={() => onNavigate('products', 'personal-care')}>
-                        <img src="https://media-cdn.oriflame.com/digitalPromotionsMedia/images/banner-media/ES/20900001/20866153.jpg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Activelle Protection" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end p-10 text-white">
-                            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#f9a8d4] mb-3">Protección Activa</span>
-                            <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">Cuidado Personal</h3>
-                            <button className="bg-white text-black font-black py-3 px-8 rounded-full text-[10px] uppercase tracking-widest w-fit hover:bg-[#f9a8d4] transition-all">Ver Ofertas</button>
-                        </div>
+                        <button 
+                            onClick={() => onNavigate('ia')}
+                            className="bg-white text-black font-black py-6 px-16 rounded-full uppercase tracking-widest text-[11px] hover:bg-[#f472b6] transition-all whitespace-nowrap"
+                        >
+                            Consultar a Vella IA
+                        </button>
                     </div>
                 </div>
             </div>
